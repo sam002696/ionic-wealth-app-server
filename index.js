@@ -163,6 +163,20 @@ async function run() {
             }
 
         })
+        // get a single user
+        app.get('/user/:email', async (req, res) => {
+            const email = req.params.email;
+            // if (req.decodedUserEmail === email) {
+            const query = { email: email };
+            const user = await usersCollection.findOne(query);
+            res.json(user);
+            // }
+            // else {
+            //     res.status(403).send({ message: 'forbidden' });
+            // }
+        }
+        );
+
 
         // check an user if admin
         app.get('/users/:email', verifyToken, async (req, res) => {
