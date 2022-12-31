@@ -2,14 +2,17 @@ const express = require("express");
 const cors = require("cors");
 const { MongoClient } = require("mongodb");
 const ObjectId = require("mongodb").ObjectId;
-require("dotenv").config();
+
 const admin = require("firebase-admin");
 const app = express();
+const dotenv = require("dotenv");
 const port = process.env.PORT || 5000;
 
 // middleware
 app.use(cors());
 app.use(express.json());
+
+dotenv.config();
 
 //ionicwealth
 //1WuiL3MeYz8Nfi9a
