@@ -23,7 +23,7 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 
-var serviceAccount = require("./adminsdk");
+var serviceAccount = require("./ionic-wealth-fa-firebase-adminsdk.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -204,7 +204,7 @@ async function run() {
     // await client.close();
   }
 }
-// run().catch(console.dir);
+run().catch(console.dir);
 
 app.get("/", (req, res) => res.send("Hello World!"));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
